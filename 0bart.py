@@ -1,8 +1,15 @@
 import shutil
+import os
+import time
+import platform
+from datetime import datetime
 
 RESET = "\033[0m"
 PRI = "\033[92m"
 SEC = "\033[33m"
+GRAY = "\033[90m"
+WHI = "\033[38;5;255m"
+RED = "\033[38;5;168m"
 
 ins = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 outs = [
@@ -255,13 +262,67 @@ def print_chr(chr):
         print()
     print()
 
+def easter_egg():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(f"{WHI}{"  * MA INDUSTRIES TERMINAL HIJACK SYSTEM"}{RESET}")
+    time.sleep(1)
+    print(f"{WHI}{"  // In Progress"}{RESET}")
+    time.sleep(2)
+    print("\n"*5)
+    print (f"{GRAY}{"        The user is a part of the following security groups:"}")
+    print ("        _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
+    time.sleep(1)
+    print("            Domain users:")
+    print("            BUILTIN\\Users")
+    print("            NT AUTHORITY\\INTERACTIVE")
+    time.sleep(2)
+    print("\n"*2)
+    print("  OK to Reboot?  [Y/N]_")
+    time.sleep(2)
+    print("\n"*2)
+    print(f"{"  C:\\"}{RESET}")
+    print(f"{WHI}{"""
+        #      # ####### #        #####   ####### #     # #######    #     # #######      #     #    #    #     # #######  #####  #     #
+        #  #   # #       #       #      # #     # ##   ## #          ##   ## #      #     ##   ##   # #   ##    #    #    #     # #     #
+        #  #   # #       #       #        #     # # # # # #          # # # # #      #     # # # #  #   #  # #   #    #    #       #     #
+        #  #   # #####   #       #        #     # #  #  # #####      #  #  # #######      #  #  # #     # #  #  #    #     #####  #######
+        #  #   # #       #       #        #     # #     # #          #     # #    #       #     # ####### #   # #    #          # #     #
+        #  #   # #       #       #      # #     # #     # #          #     # #     #  ### #     # #     # #    ##    #          # #     #
+         ##  ##  ####### #######  #####   ####### #     # #######    #     # #      # ### #     # #     # #     # ####### ######  #     #
+"""}{RESET}")
+    time.sleep(2.5)
+    os_info = platform.uname()
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    error_message = f"{RED}{f"""
+        **System Error: Critical Failure**
+        Error Code: 0xD6F4-9A37
+        OS: {os_info.system} {os_info.release} {os_info.version} (Build {os_info.machine})
+        Timestamp: {timestamp}
+        Severity Level: High
+
+        Fatal System Shutdown Initiated...
+        Memory Allocation Failure - Insufficient Resources
+
+        Error Details:
+        - Module: System.Core.dll
+        - Exception Type: ACCESS_VIOLATION
+        - Location: 0x77C6F23A
+        - Thread ID: Unknown
+        - Process ID: Unknown
+
+        Please restart the system. If the problem persists, contact your system administrator for further assistance.
+    """}{RESET}"
+    print(error_message)
+
+
 while True:
     user_input = input().upper()
     print()
     if user_input == 'E':
         break
     elif user_input == 'MA':
-        print('ma')
+        easter_egg()
+        break
     else:
         output = ['' for _ in range(size)]
 
