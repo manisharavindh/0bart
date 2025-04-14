@@ -1,3 +1,5 @@
+import shutil
+
 RESET = "\033[0m"
 PRI = "\033[92m"
 SEC = "\033[33m"
@@ -240,30 +242,42 @@ outs = [
     ]
 ]
 
+term_width = shutil.get_terminal_size((80, 20)).columns
 size = 7
+
+def print_chr(chr):
+    for line in output:
+        for ch in line:
+            if ch == '0':
+                print(f"{SEC}{ch}{RESET}", end='')
+            else:
+                print(f"{PRI}{ch}{RESET}", end='')
+        print()
+    print()
 
 while True:
     user_input = input().upper()
     print()
     if user_input == 'E':
         break
+    elif user_input == 'MA':
+        print('ma')
     else:
         output = ['' for _ in range(size)]
 
         for chr in user_input:
             if chr in ins:
                 index = ins.index(chr)
-                for i in range(size):
-                    output[i] += outs[index][i]
+                new_letter = [outs[index][i] for i in range(size)]
             else:
-                for i in range(size):
-                    output[i] += ' ' * 5
-
-        for line in output:
-            for ch in line:
-                if ch == '0':
-                    print(f"{SEC}{ch}{RESET}", end='')
-                else:
-                    print(f"{PRI}{ch}{RESET}", end='')
-            print(end='\n')
-        print()
+                new_letter = [' ' * 5 for _ in range(size)]
+        
+            if len(output[0] + new_letter[0]) > term_width:
+                print_chr(output)
+                output = ['' for _ in range(size)]
+            
+            for i in range(size):
+                output[i] += new_letter[i]
+        
+        if any (line.strip() for line in output):
+            print_chr(output)
