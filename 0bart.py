@@ -264,23 +264,25 @@ def print_chr(chr):
 
 def easter_egg():
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(f"{WHI}{"  * MA INDUSTRIES TERMINAL HIJACK SYSTEM"}{RESET}")
+    time.sleep(2)
+    print(f"{WHI}{"  * MA INDUSTRIES TERMINAL HIJACK SYSTEM (NOWAR3289)"}{RESET}")
     time.sleep(1)
     print(f"{WHI}{"  // In Progress"}{RESET}")
-    time.sleep(2)
-    print("\n"*5)
+    time.sleep(3)
+    print("\n"*3)
     print (f"{GRAY}{"        The user is a part of the following security groups:"}")
     print ("        _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
-    time.sleep(1)
+    time.sleep(0.25)
     print("            Domain users:")
     print("            BUILTIN\\Users")
     print("            NT AUTHORITY\\INTERACTIVE")
     time.sleep(2)
     print("\n"*2)
     print("  OK to Reboot?  [Y/N]_")
-    time.sleep(2)
+    time.sleep(3)
     print("\n"*2)
     print(f"{"  C:\\"}{RESET}")
+    time.sleep(0.25)
     print(f"{WHI}{"""
         #      # ####### #        #####   ####### #     # #######    #     # #######      #     #    #    #     # #######  #####  #     #
         #  #   # #       #       #      # #     # ##   ## #          ##   ## #      #     ##   ##   # #   ##    #    #    #     # #     #
@@ -320,7 +322,7 @@ while True:
     print()
     if user_input == 'E':
         break
-    elif user_input == 'MA':
+    elif user_input == 'NOWAR3289':
         easter_egg()
         break
     else:
