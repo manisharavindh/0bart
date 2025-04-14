@@ -264,6 +264,7 @@ def print_chr(chr):
 
 def easter_egg():
     os.system('cls' if os.name == 'nt' else 'clear')
+    print("\n")
     time.sleep(2)
     print(f"{WHI}{"  * MA INDUSTRIES TERMINAL HIJACK SYSTEM (NOWAR3289)"}{RESET}")
     time.sleep(1)
