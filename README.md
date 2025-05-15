@@ -8,7 +8,7 @@ A simple python terminal code that creates ASCII art for given alphabets or simp
 
 2. **Clone the repository:**
 ```bash
-    git clone https://github.com/NoWar3289/0bart.git
+    git clone https://github.com/manisharavindh/0bart.git
    ```
 
 3. **Install dependencies:**
